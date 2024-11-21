@@ -23,143 +23,31 @@ Each subclass inherits properties and methods from Book but overrides methods to
 This design allows the program to handle different types of books in a unified way (e.g., storing them in a single BookCatalog list) while allowing each type of book to have unique details and behaviors.
 
 Example of Inheritance in the Program*/
-import java.time.LocalDate;
+
+import java.util.ArrayList;
+
 
 public class BookCatalog{
-    public static void main(String[] args) {
-        Book book1 = new AudioBook("audiobooktitle",new Author("artistsname",LocalDate.of(1993,5,19)),"3464643",1990,1000);
-        Book book2 = new EBook("audiobooktitle",new Author("artistsname",LocalDate.of(1993,5,19)),"3464643",1990,1024);
-        Book book3 = new PrintBook("audiobooktitle",new Author("artistsname",LocalDate.of(1993,05,19)),"3464643",1990,5);
-        book1.displayInfo();
-        book2.displayInfo();
-        book3.displayInfo();
 
+    ArrayList<Book> booklog;
+
+    public BookCatalog() {
+        booklog = new ArrayList<Book>();
     }
-    public static class Author{
-        private String artistName;
-        private LocalDate dob;
-
-        public Author(String artistName, LocalDate dob) {
-            this.artistName = artistName;
-            this.dob = dob;
-        }
-
-        public String getArtistName() {
-            return artistName;
-        }
-
-        public void setArtistName(String artistName) {
-            this.artistName = artistName;
-        }
-
-        public LocalDate getDob() {
-            return dob;
-        }
-
-        public void setDob(LocalDate dob) {
-            this.dob = dob;
-        }
-
+    
+    //add book
+    public void add(Book book) {
+        booklog.add(book);
     }
-    static abstract class Book {
-        // Common fields and methods for all books
-        private String title;
-        private Author author;
-        private String isbn;
-        private int year;
-
-        public Book(String title, BookCatalog.Author author, String isbn, int year) {
-            this.title = title;
-            this.author = author;
-            this.isbn = isbn;
-            this.year = year;
-        }
-        public abstract void displayInfo();
-        public abstract void performAction();
-        public String getTitle() {
-            return title;
-        }
-        public void setTitle(String title) {
-            this.title = title;
-        }
-        public Author getAuthor() {
-            return author;
-        }
-        public void setAuthor(Author author) {
-            this.author = author;
-        }
-        public String getIsbn() {
-            return isbn;
-        }
-        public void setIsbn(String isbn) {
-            this.isbn = isbn;
-        }
-        public int getYear() {
-            return year;
-        }
-        public void setYear(int year) {
-            this.year = year;
-        }
+    
+    //remove book
+   
+    //search by name
+    public void printDetails() {
+        for(Book b: booklog) {
+            b.displayInfo();
     }
-
-      public static class PrintBook extends Book {
-        private int numPages;
-
-        public PrintBook(String title, BookCatalog.Author author, String isbn, int year, int numPages) {
-            super(title, author, isbn, year);
-            this.numPages = numPages;
-        }
-
-        @Override
-        public void displayInfo() {
-            System.out.println("This is a Printed Book");
-            // Specific implementation for PrintBook
-        }
-
-        @Override
-        public void performAction() {
-            // Specific action for PrintBook
-        }
     }
-
-    public static class EBook extends Book {
-        private double fileSizeMB;
-
-        public EBook(String title, BookCatalog.Author author, String isbn, int year, double fileSizeMB) {
-            super(title, author, isbn, year);
-            this.fileSizeMB = fileSizeMB;
-        }
-
-        @Override
-        public void displayInfo() {
-            System.out.println("This is an EBook ");
-            // Specific implementation for EBook
-        }
-
-        @Override
-        public void performAction() {
-            // Specific action for EBook
-        }
-    }
-
-    public static class AudioBook extends Book {
-        private int durationMinutes;
-
-        public AudioBook(String title, BookCatalog.Author author, String isbn, int year, int durationMinutes) {
-            super(title, author, isbn, year);
-            this.durationMinutes = durationMinutes;
-        }
-
-        @Override
-        public void displayInfo() {
-            System.out.println("This is an AudioBook");
-            // Specific implementation for AudioBook
-        }
-
-        @Override
-        public void performAction() {
-            // Specific action for AudioBook
-        }
-    }
+    
     
     }
