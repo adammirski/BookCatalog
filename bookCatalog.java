@@ -24,6 +24,14 @@ public class BookCatalog {
         System.out.println("Book '" + title + "' not found.");
         return null;
     }
+    
+        public void markAsRead(String title) {
+        Book book = searchBook(title);
+        if (book != null) {
+            book.setRead(true);
+            System.out.println("Marked as read: " + title);
+        }
+    }
 
     // add book
     public void add(Book book) {
