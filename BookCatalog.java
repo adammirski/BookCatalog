@@ -1,4 +1,4 @@
-//*How Extended Classes Are Used in This Program
+/*How Extended Classes Are Used in This Program
 
 	1.	Base Class (Book):
 	
@@ -45,7 +45,7 @@ public class BookCatalog{
         
         title = title.toLowerCase();
         for(int i = 0; i < booklog.size(); i++) {
-            if(booklog.get(i).getTitle().toLowerCase() == title) {
+            if(booklog.get(i).getTitle().toLowerCase().equals(title) ) {
                 booklog.remove(i);
                 return 0;
 
@@ -54,6 +54,10 @@ public class BookCatalog{
         }
         return -1;
 
+    }
+
+    public void sortBooks() {
+        booklog.sort(null);
     }
    
     //search by name

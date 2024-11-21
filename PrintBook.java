@@ -1,7 +1,7 @@
 public  class PrintBook extends Book {
     private int numPages;
 
-        public PrintBook(String title, Author author, String isbn, int year, int numPages) {
+        public PrintBook(String title, String author, String isbn, int year, int numPages) {
         super(title, author, isbn, year);
         this.numPages = numPages;
     }
@@ -23,6 +23,12 @@ public  class PrintBook extends Book {
         public void performAction() {
             // Specific action for PrintBook
         }
+
+        @Override
+        public int compareTo(Book other) {
+        return this.getTitle().compareTo(other.getTitle());
+
+    }
 }
     
 

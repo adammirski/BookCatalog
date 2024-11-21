@@ -1,7 +1,9 @@
+
+
 public  class AudioBook extends Book {
     private int durationMinutes;
 
-    public AudioBook(String title, Author author, String isbn, int year, int durationMinutes) {
+    public AudioBook(String title, String author, String isbn, int year, int durationMinutes) {
         super(title, author, isbn, year);
         this.durationMinutes = durationMinutes;
     }
@@ -21,5 +23,11 @@ public  class AudioBook extends Book {
     @Override
     public void performAction() {
         // Specific action for AudioBook
+    }
+    
+    @Override
+    public int compareTo(Book other) {
+        return this.getTitle().compareTo(other.getTitle());
+
     }
 }

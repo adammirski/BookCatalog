@@ -1,10 +1,10 @@
-public abstract class Book {
+public abstract class Book implements Comparable<Book>{
     private String title;
-        private Author author;
+        private String author;
         private String isbn;
         private int year;
 
-        public Book(String title, Author author, String isbn, int year) {
+        public Book(String title, String author, String isbn, int year) {
             this.title = title;
             this.author = author;
             this.isbn = isbn;
@@ -18,10 +18,10 @@ public abstract class Book {
         public void setTitle(String title) {
             this.title = title;
         }
-        public Author getAuthor() {
+        public String getAuthor() {
             return author;
         }
-        public void setAuthor(Author author) {
+        public void setAuthor(String author) {
             this.author = author;
         }
         public String getIsbn() {
@@ -35,6 +35,12 @@ public abstract class Book {
         }
         public void setYear(int year) {
             this.year = year;
+        }
+        
+        public int compareTo(Book other) {
+            
+            return String.CASE_INSENSITIVE_ORDER.compare(this.getTitle(), other.getTitle());
+
         }
     }
 

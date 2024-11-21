@@ -1,7 +1,7 @@
 public class EBook extends Book {
     private double fileSizeMB;
 
-    public EBook(String title, Author author, String isbn, int year, double fileSizeMB) {
+    public EBook(String title, String author, String isbn, int year, double fileSizeMB) {
         super(title, author, isbn, year);
         this.fileSizeMB = fileSizeMB;
     }
@@ -20,5 +20,11 @@ public class EBook extends Book {
     @Override
     public void performAction() {
         // Specific action for EBook
+    }
+    
+    @Override
+    public int compareTo(Book other) {
+        return this.getTitle().compareTo(other.getTitle());
+
     }
 }
