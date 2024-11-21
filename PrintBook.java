@@ -15,7 +15,6 @@ public  class PrintBook extends Book {
             System.out.println("Author: " + super.getAuthor());
             System.out.println("ISBN: " + super.getIsbn());
             System.out.println("Year: " + super.getYear());
-            System.out.println("This is a Printed Book");
             System.out.println("Number of pages is " + numPages + " pages\n");
             // Specific implementation for PrintBook
         }
