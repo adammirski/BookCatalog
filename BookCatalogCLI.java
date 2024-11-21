@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class BookCatalogCLI {
 
@@ -54,4 +54,4 @@ public class BookCatalogCLI {
             }
         }
     }
-}
+}*/

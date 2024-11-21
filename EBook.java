@@ -6,15 +6,30 @@ public class EBook extends Book {
         this.fileSizeMB = fileSizeMB;
     }
 
+    public double getFileSizeMB() {
+        return fileSizeMB;
+    }
+
+    public void setFileSizeMB(double fileSizeMB) {
+        this.fileSizeMB = fileSizeMB;
+    }
+
     @Override
     public void displayInfo() {
-        System.out.println("This is an EBook ");
-        System.out.println("Title: " + super.getTitle());
-        System.out.println("Author: " + super.getAuthor());
-        System.out.println("ISBN: " + super.getIsbn());
-        System.out.println("Year: " + super.getYear());
-        System.out.println("File size is " + fileSizeMB + " minutes\n");
-        // Specific implementation for EBook
+        System.out.println("==============================================");
+        // Fixed the header to include "File Size" and "Type"
+        System.out.printf("%-20s %-20s %-11s %-6s %-10s %-15s %n", "Title", "Author", "ISBN", "Year", "File Size", "Type");
+        
+        // Ensure the data row aligns with the header
+        System.out.printf("%-20s %-20s %-11s %-6d %-10.2f %-15s %n", 
+            getTitle(), 
+            getAuthor(), 
+            getIsbn(), 
+            getYear(), 
+            fileSizeMB,  // Ensure this is a double
+            "EBook");
+        
+        System.out.println("==============================================");
     }
 
     @Override

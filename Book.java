@@ -3,6 +3,7 @@ public abstract class Book implements Comparable<Book>{
         private String author;
         private String isbn;
         private int year;
+        private boolean isRead;
 
         public Book(String title, String author, String isbn, int year) {
             this.title = title;
@@ -10,7 +11,10 @@ public abstract class Book implements Comparable<Book>{
             this.isbn = isbn;
             this.year = year;
         }
-        public abstract void displayInfo();
+        
+    public void displayInfo() {
+        
+}
         public abstract void performAction();
         public String getTitle() {
             return title;
@@ -41,6 +45,12 @@ public abstract class Book implements Comparable<Book>{
             
             return String.CASE_INSENSITIVE_ORDER.compare(this.getTitle(), other.getTitle());
 
+        }
+        public boolean isRead() {
+            return isRead;
+        }
+        public void setRead(boolean read) {
+            isRead = read;
         }
     }
 

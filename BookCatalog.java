@@ -25,33 +25,89 @@ This design allows the program to handle different types of books in a unified w
 Example of Inheritance in the Program*/
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class BookCatalog{
 
     ArrayList<Book> booklog;
+    Scanner input = new Scanner(System.in);
 
     public BookCatalog() {
         booklog = new ArrayList<Book>();
     }
     
     //add book
-    public void add(Book book) {
-        booklog.add(book);
+   public void addBook() {
+        
+        System.out.println("Type of book: ");
+        System.out.println("1. Print book");
+        System.out.println("2. eBook");
+        System.out.println("3. Audiobook");
+        System.out.println("Enter selection: ");
+        int book_type = input.nextInt();
+        input.nextLine();
+
+
+
+        System.out.print("Enter Title: ");
+        String title = input.nextLine();
+        System.out.print("Enter Author: ");
+        String author = input.nextLine();
+        System.out.print("Enter ISBN: ");
+        String isbn = input.nextLine();
+        System.out.print("Enter Year: ");
+        int year = input.nextInt();
+        input.nextLine();
+
+        int pages = 0;
+        double file_size = 0;
+        int duration = 0;
+
+        switch (book_type) {
+            case 1:
+                System.out.print("Enter number of pages: ");
+                pages = input.nextInt();
+                booklog.add(new PrintBook(title,author,isbn,year,pages));
+                break;
+            case 2:
+                System.out.print("Enter file size(MB): ");
+                file_size = input.nextDouble();
+                booklog.add(new EBook(title,author,isbn,year,file_size));
+                break;
+            case 3:
+                System.out.print("Enter duration(minutes): ");
+                duration = input.nextInt();
+                booklog.add(new AudioBook(title,author,isbn,year,duration));
+                break;
+
+        }
+        System.out.println("Book added.");
+        
+
+
+
     }
     
     //remove book
-    public int remove(String title) {
+    public int removeBook() {
         
-        title = title.toLowerCase();
+        System.out.println("Please enter an isbn to remove");
+        if (input.hasNextLine()) {
+            input.nextLine();
+        }
+        String isbn = input.nextLine();
+        
+        
         for(int i = 0; i < booklog.size(); i++) {
-            if(booklog.get(i).getTitle().toLowerCase().equals(title) ) {
+            if(booklog.get(i).getIsbn().toLowerCase().equals(isbn) ) {
                 booklog.remove(i);
                 return 0;
 
             }
             
         }
+        System.out.println("Book with ISBN '" + isbn + "' not found.");
         return -1;
 
     }
@@ -60,10 +116,39 @@ public class BookCatalog{
         booklog.sort(null);
     }
    
-    //search by name
+    /***************searchBook()****************
+     *The method iterates over a list of Book objs
+     *(booklog) but the booklog list can store objs
+     *of any class that extends Book bc of polymorphism.
+     *********************************************/
+    public Book searchBook() {
+        
+        System.out.println("Enter Title");
+        String title = input.nextLine();
+        for (Book book : booklog) {
+            if (book.getTitle().equalsIgnoreCase(title)) { // case insensitive
+                System.out.println("Book found:");
+                book.displayInfo();
+                return book;
+            }
+        }
+        System.out.println("Book '" + title + "' not found.");
+        return null;
+    }
+    
+        public void markAsRead() {
+        Book book = searchBook();
+        if (book != null) {
+            book.setRead(true);
+            System.out.println("Marked as read: " + book.getTitle());
+        }
+    }
     public void printDetails() {
+        int count = 0;
         for(Book b: booklog) {
+            System.out.print("#" + count);
             b.displayInfo();
+            count++;
     }
     }
     
