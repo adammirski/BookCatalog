@@ -1,3 +1,5 @@
+package org.example;
+import org.example.BookCatalog;
 import java.util.Scanner;
 
 public class BookCatalogCLI {
@@ -19,29 +21,18 @@ public class BookCatalogCLI {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter book title: ");
-                    String title = scanner.nextLine();
-                    System.out.print("Enter book author: ");
-                    String author = scanner.nextLine();
-                    System.out.print("Enter book ISBN: ");
-                    String isbn = scanner.nextLine();
-                    catalog.addBook(new Book(title, author, isbn));
-                    System.out.println("Book added successfully.");
+                    catalog.addBook();
                     break;
 
                 case 2:
                     System.out.print("Enter book ISBN to remove: ");
                     String removeIsbn = scanner.nextLine();
-                    if (catalog.removeBook(removeIsbn)) {
-                        System.out.println("Book removed successfully.");
-                    } else {
-                        System.out.println("Book not found.");
-                    }
+                    catalog.removeBook(removeIsbn);
                     break;
 
                 case 3:
                     catalog.printCatalog();
-                    System.out.println("Catalog printed to console and saved to 'catalog.txt'.");
+                    System.out.println("Catalog printed to console.");
                     break;
 
                 case 4:
