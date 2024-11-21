@@ -13,7 +13,6 @@ public class EBook extends Book {
         System.out.println("Author: " + super.getAuthor());
         System.out.println("ISBN: " + super.getIsbn());
         System.out.println("Year: " + super.getYear());
-        System.out.println("This is a Printed Book");
         System.out.println("File size is " + fileSizeMB + " minutes\n");
         // Specific implementation for EBook
     }
