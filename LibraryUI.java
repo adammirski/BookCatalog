@@ -17,7 +17,7 @@ public class LibraryUI {
         // Prepopulate the catalog with five predefined books
         bookCatalog.booklog.add(new PrintBook("1984", "George Orwell", "123456789", 1949, 328));
         bookCatalog.booklog.add(new PrintBook("Catch-22", "Joseph Heller", "987654321", 1961, 453));
-        bookCatalog.booklog.add(new EBook("Sapiens", "Yuval Noah Harari", "567890123", 2011, 15.7));
+        bookCatalog.booklog.add(new EBook("Sapiens", "Yuval Noah Harari", "567890123", 2011, 157));
         bookCatalog.booklog.add(new AudioBook("Becoming", "Michelle Obama", "345678901", 2018, 1140));
         bookCatalog.booklog.add(new PrintBook("To Kill a Mockingbird", "Harper Lee", "192837465", 1960, 281));
 
