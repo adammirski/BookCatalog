@@ -10,7 +10,7 @@ public  class PrintBook extends Book {
 
     @Override
 public void displayInfo() {
-    System.out.println("==============================================");
+    System.out.println("==========================================================================================");
     // Fixed the header to match the data
     System.out.printf("%-20s %-20s %-11s %-6s %-6s %-15s %n", "Title", "Author", "ISBN", "Year", "Pages", "Type");
     
@@ -23,7 +23,7 @@ public void displayInfo() {
         numPages, 
         "PrintedBook");
     
-    System.out.println("==============================================");
+        System.out.println("============================================================================================");
 }
 
         public int getNumPages() {

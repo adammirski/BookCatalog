@@ -16,7 +16,7 @@ public class EBook extends Book {
 
     @Override
     public void displayInfo() {
-        System.out.println("==============================================");
+        System.out.println("==========================================================================================");
         // Fixed the header to include "File Size" and "Type"
         System.out.printf("%-20s %-20s %-11s %-6s %-10s %-15s %n", "Title", "Author", "ISBN", "Year", "File Size", "Type");
         
@@ -29,7 +29,7 @@ public class EBook extends Book {
             fileSizeMB,  // Ensure this is a double
             "EBook");
         
-        System.out.println("==============================================");
+            System.out.println("============================================================================================");
     }
 
     @Override
