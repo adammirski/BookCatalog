@@ -1,0 +1,57 @@
+==========================================
+       Library Management System
+==========================================
+
++-------------------+
+|     <<Abstract>>  |
+|       Book        |
++-------------------+
+| - title           |
+| - author          |
+| - isbn            |
+| - year            |
+| - isRead          |
++-------------------+
+| + getTitle()      |
+| + getAuthor()     |
+| + getIsbn()       |
+| + getYear()       |
+| + setRead()       |
+| + isRead()        |
+| + displayInfo(){} |
+| + performAction() |
+| + compareTo()     |
++-------------------+
+          ^
+          |
+   ------------------------
+   |          |           |
++------------+ +-----------+ +------------+
+|  PrintBook | |   EBook   | | AudioBook  |
++------------+ +-----------+ +------------+
+| - numPages | | - fileSize| | - duration |
+|            | | MB        | | Minutes    |
++------------+ +-----------+ +------------+
+| + display  | | + display | | + display  |
+| + perform  | | + perform | | + perform  |
+| + compare  | | + compare | | + compare  |
++------------+ +-----------+ +------------+
+
++------------------------+
+|      BookCatalog       |
++------------------------+
+| - booklog: ArrayList<> |
++------------------------+
+| + addBook()            |
+| + removeBook()         |
+| + searchBook()         |
+| + sortBooks()          |
+| + printDetails()       |
+| + markAsRead()         |
++------------------------+
+
++------------------------+
+|      LibraryUI         |
++------------------------+
+| + main()               |
++------------------------+
